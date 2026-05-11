@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Hakem Faiza</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-size: 10.5px;
+    color: #2c2c2c;
+    background: #e8e8e8;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12mm auto;
+    background: #fff;
+    display: flex;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.25);
+  }
+
+  /* ══════════════════════════════
+     SIDEBAR GAUCHE
+  ══════════════════════════════ */
+  .sidebar {
+    width: 70mm;
+    background: #1b3a5c;
+    color: #e8edf2;
+    padding: 30px 18px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    flex-shrink: 0;
+  }
+
+  /* Photo + Nom dans la sidebar */
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .photo-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #4a9fd4;
+    overflow: hidden;
+    background: #2c5282;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-placeholder {
+    font-size: 8px;
+    color: #a0b8cc;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .sidebar-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .sidebar-jobtitle {
+    font-size: 8.5px;
+    font-weight: 400;
+    color: #4a9fd4;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  /* Titres de section sidebar */
+  .s-section-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4a9fd4;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .s-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(74, 159, 212, 0.35);
+  }
+
+  /* Contact */
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-bottom: 8px;
+    font-size: 9px;
+    color: #ccd9e4;
+    line-height: 1.4;
+  }
+
+  .c-icon {
+    width: 15px;
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 1px;
+    font-size: 11px;
+  }
+
+  /* Compétences — tags */
+  .tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    background: rgba(74, 159, 212, 0.18);
+    border: 1px solid rgba(74, 159, 212, 0.4);
+    color: #cde4f2;
+    font-size: 8px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Langues */
+  .lang-item {
+    margin-bottom: 7px;
+  }
+
+  .lang-name {
+    font-size: 9px;
+    color: #e0eaf2;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .lang-level {
+    font-size: 8px;
+    color: #8aafc8;
+    margin-bottom: 4px;
+  }
+
+  .lang-bar-bg {
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .lang-bar-fill {
+    height: 4px;
+    background: #4a9fd4;
+    border-radius: 4px;
+  }
+
+  /* Centres d'intérêt */
+  .interest-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 9px;
+    color: #ccd9e4;
+  }
+
+  .interest-dot {
+    width: 5px;
+    height: 5px;
+    background: #4a9fd4;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════
+     CONTENU PRINCIPAL
+  ══════════════════════════════ */
+  .main {
+    flex: 1;
+    padding: 30px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* Section title — côté droit */
+  .m-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1b3a5c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .m-section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #1b3a5c;
+  }
+
+  /* Profil */
+  .profil-text {
+    font-size: 9.5px;
+    line-height: 1.7;
+    color: #444;
+    text-align: justify;
+    font-weight: 300;
+  }
+
+  /* Expérience & Projets — timeline */
+  .timeline-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .timeline-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 10px;
+    padding-top: 3px;
+  }
+
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4a9fd4;
+    border: 2px solid #1b3a5c;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    background: #d8e8f2;
+    margin-top: 3px;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding-bottom: 4px;
+  }
+
+  .tl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .tl-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #1b3a5c;
+    line-height: 1.3;
+  }
+
+  .tl-date {
+    font-size: 8px;
+    color: #fff;
+    background: #4a9fd4;
+    padding: 1px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+
+  .tl-org {
+    font-size: 8.5px;
+    color: #4a9fd4;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 8.5px;
+    line-height: 1.65;
+    color: #555;
+    text-align: justify;
+    font-weight: 300;
+    margin-bottom: 4px;
+  }
+
+  .tl-tech {
+    font-size: 8px;
+    color: #888;
+    font-style: italic;
+  }
+
+  .tl-tech strong {
+    color: #1b3a5c;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* Formation — cards */
+  .formation-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .formation-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 10px;
+    background: #f4f8fc;
+    border-left: 3px solid #4a9fd4;
+    border-radius: 0 4px 4px 0;
+    gap: 8px;
+  }
+
+  .fc-title {
+    font-size: 9px;
+    font-weight: 700;
+    color: #1b3a5c;
+    margin-bottom: 2px;
+  }
+
+  .fc-school {
+    font-size: 8.5px;
+    color: #777;
+    font-weight: 300;
+  }
+
+  .fc-date {
+    font-size: 8px;
+    font-weight: 700;
+    color: #4a9fd4;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .fc-date.current {
+    color: #27ae60;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ SIDEBAR ══ -->
+  <div class="sidebar">
+
+    <!-- Photo + Nom -->
+    <div class="sidebar-top">
+      <div class="photo-wrap">
+        <img src="photo_cv.jpg" alt="Photo Faiza Hakem">
+      </div>
+      <div>
+        <div class="sidebar-name">Hakem<br>Faiza</div>
+        <div class="sidebar-jobtitle" style="margin-top:6px;">Alternance<br>Développement Full Stack</div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="s-section-title">Contact</div>
+      <div class="contact-item">
+        <span class="c-icon">📞</span>
+        <span>+336 75 65 71 65</span>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">✉</span>
+        <span>hakemfaiza21@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">📍</span>
+        <span>Brest 29200</span>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">🐙</span>
+        <span>github.com/faizahak21</span>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    <div>
+      <div class="s-section-title">Langages</div>
+      <div class="tags-wrap">
+        <span class="tag">Java</span>
+        <span class="tag">Python</span>
+        <span class="tag">PHP</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML / CSS</span>
+        <span class="tag">SQL</span>
+        <span class="tag">C</span>
+        <span class="tag">OCaml</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-section-title">Frameworks</div>
+      <div class="tags-wrap">
+        <span class="tag">Spring Boot</span>
+        <span class="tag">Spring Cloud</span>
+        <span class="tag">Vue.js</span>
+        <span class="tag">PyQt5</span>
+        <span class="tag">JavaFX</span>
+        <span class="tag">Bootstrap</span>
+        <span class="tag">REST API</span>
+        <span class="tag">JWT</span>
+        <span class="tag">CodeIgniter</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-section-title">Outils</div>
+      <div class="tags-wrap">
+        <span class="tag">Git / GitLab</span>
+        <span class="tag">Linux</span>
+        <span class="tag">UML</span>
+        <span class="tag">Agile Scrum</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <!-- Langues -->
+    <div>
+      <div class="s-section-title">Langues</div>
+
+      <div class="lang-item">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-level">Avancé</div>
+        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+
+    <!-- Qualités -->
+    <div>
+      <div class="s-section-title">Qualités</div>
+      <div class="tags-wrap">
+        <span class="tag">Rigoureuse</span>
+        <span class="tag">Autonome</span>
+        <span class="tag">Curieuse</span>
+        <span class="tag">Organisée</span>
+        <span class="tag">Adaptable</span>
+        <span class="tag">Collaborative</span>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- ══ CONTENU PRINCIPAL ══ -->
+  <div class="main">
+
+    <!-- PROFIL -->
+    <div>
+      <div class="m-section-title">Profil</div>
+      <p class="profil-text">
+        Étudiante en Master 1 Informatique à l'Université de Bretagne Occidentale, j'ai acquis
+        une expérience concrète en développement web, applications Java et interfaces graphiques
+        à travers deux stages et plusieurs projets académiques. À l'aise côté backend (Spring Boot,
+        PHP) comme côté frontend (Vue.js, HTML/CSS), je recherche une alternance pour approfondir
+        mes compétences en développement full stack dans un contexte professionnel.
+      </p>
+    </div>
+
+    <!-- FORMATION -->
+    <div>
+      <div class="m-section-title">Formation</div>
+      <div class="formation-grid">
+
+        <div class="formation-card">
+          <div>
+            <div class="fc-title">Master 1 Informatique — Parcours ILIADE</div>
+            <div class="fc-school">Ingénierie du Logiciel, Applications aux Données Environnementales · UBO, Brest</div>
+          </div>
+          <div class="fc-date current">En cours</div>
+        </div>
+
+        <div class="formation-card">
+          <div>
+            <div class="fc-title">Licence Informatique — Parcours IFA</div>
+            <div class="fc-school">Informatique : Fondements et Applications · UBO, Brest</div>
+          </div>
+          <div class="fc-date">2022 – 2025</div>
+        </div>
+
+        <div class="formation-card">
+          <div>
+            <div class="fc-title">Baccalauréat Sciences Expérimentales</div>
+            <div class="fc-school">Lycée Frères Martyrs Chekroun, Algérie</div>
+          </div>
+          <div class="fc-date">2021 – 2022</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EXPÉRIENCE -->
+    <div>
+      <div class="m-section-title">Expérience professionnelle</div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tl-header">
+            <div class="tl-title">Stagiaire Développeuse</div>
+            <span class="tl-date" style="color:#27ae60;background:rgba(39,174,96,0.12);border:1px solid rgba(39,174,96,0.3);border-radius:10px;padding:1px 7px;">En cours · AVR. 2026</span>
+          </div>
+          <div class="tl-org">Université de Bretagne Occidentale — laboratoire OMER, Brest</div>
+          <p class="tl-desc">
+            Développement d'une interface graphique (IHM) en Python/PyQt5 pour le routage des voiliers.
+            Conception de l'architecture de l'interface, intégration d'algorithmes d'optimisation
+            multi-objectifs (MOEA isochrone), chargement de fichiers météo (GRIB) et de polaires de voilier.
+          </p>
+          <div class="tl-tech"><strong>Technologies :</strong> Python, PyQt5, MOEA</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="tl-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tl-header">
+            <div class="tl-title">Stagiaire Développeuse Web Full Stack</div>
+            <span class="tl-date">AVR. – JUIN 2025</span>
+          </div>
+          <div class="tl-org">Association Coup de Pouce, Brest</div>
+          <p class="tl-desc">
+            Développement full stack : backend PHP/MySQL (optimisation, sécurisation des données,
+            intégration de tests) et frontend (refonte des interfaces, HTML/CSS/JavaScript).
+            Contrôle qualité du code et respect des bonnes pratiques de développement.
+          </p>
+          <div class="tl-tech"><strong>Technologies :</strong> PHP, MySQL, HTML, CSS, JavaScript</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJETS ACADÉMIQUES -->
+    <div>
+      <div class="m-section-title">Projets académiques</div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tl-header">
+            <div class="tl-title">Architecture microservices — Application VOD</div>
+            <span class="tl-date">JANV. – MARS 2026</span>
+          </div>
+          <p class="tl-desc">
+            Application de streaming full stack en architecture microservices : services REST
+            indépendants (films, artistes, réservations, authentification) exposés via une API Gateway
+            Spring Cloud, frontend Vue.js avec authentification JWT.
+          </p>
+          <div class="tl-tech"><strong>Technologies :</strong> Java, Spring Boot, Spring Cloud, Vue.js, JWT, REST API</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tl-header">
+            <div class="tl-title">VOD — Application de réservation de films</div>
+            <span class="tl-date">NOV. 2024 – JANV. 2025</span>
+          </div>
+          <p class="tl-desc">
+            Application Java avec interface graphique pour la gestion des comptes, locations et
+            évaluations de films. Développement en binôme avec tests unitaires.
+          </p>
+          <div class="tl-tech"><strong>Technologies :</strong> Java, JavaFX, UML, JUnit, Git</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="tl-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tl-header">
+            <div class="tl-title">OlymPix — Gestion de concours sportifs</div>
+            <span class="tl-date">SEPT. – DÉC. 2024</span>
+          </div>
+          <p class="tl-desc">
+            Application web de gestion de concours développée en équipe selon la méthode Agile Scrum :
+            gestion des utilisateurs, des candidatures et des phases de sélection.
+          </p>
+          <div class="tl-tech"><strong>Technologies :</strong> PHP, MySQL, HTML, CSS, Bootstrap, GitLab</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /main -->
+
+</div><!-- /page -->
+</body>
+</html>
